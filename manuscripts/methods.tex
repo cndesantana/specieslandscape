@@ -1,0 +1,49 @@
+\section{Methods}
+
+\subsection{Sea ice data}
+
+This data set provides a near-real-time (NRT) map of sea ice concentrations for both the Northern and Southern Hemispheres. The near-real-time passive microwave brightness temperature data are acquired with the Special Sensor Microwave Imager/Sounder (SSMIS) on board the Defense Meteorological Satellite Program (DMSP) F17 satellite. The SSMIS instrument is the next generation Special Sensor Microwave/Imager (SSM/I) instrument. SSMIS data are received daily from the Comprehensive Large Array-data Stewardship System (CLASS) at the National Oceanic and Atmospheric Administration (NOAA) and are gridded onto a polar stereographic grid. Investigators generate sea ice concentrations from these data using the NASA Team algorithm.
+
+These data are stored as one-byte flat scaled binary arrays with one byte per pixel, at a resolution of 25 km. For each data file, a corresponding PNG image file is provided. These data are available via FTP for the most recent three to six months and are retained on the FTP site until NSIDC's Sea Ice Concentrations from Nimbus-7 SMMR and DMSP SSM/I Passive Microwave Data (preliminary data) become available for the same time period.
+
+These data are primarily meant to provide a best estimate of current ice and snow conditions based on information and algorithms available at the time the data are acquired. Near-real-time products are not intended for operational use in assessing sea ice conditions for navigation and should be used with caution in extending the sea ice time series in NSIDC's Sea Ice Concentrations from Nimbus-7 SMMR and DMSP SSM/I Passive Microwave Data.
+
+Temporal Coverage
+
+Start Date: 2013-01-01
+Stop Date: 2013-09-18
+
+Start Date: 2013-01-01
+Stop Date: 2013-09-18
+Data Resolution
+
+Latitude Resolution: 25 km
+Longitude Resolution: 25 km
+Temporal Resolution: 1 day
+
+
+
+
+This near-real-time sea ice concentration (NRTSI) data set is created using brightness temperatures from NOAA's Comprehensive Large Array-data Stewardship System (CLASS) in order to provide the product within one to two days following data acquisition. These brightness temperatures do not receive the same level of quality control as the DMSP SSM/I-SSMIS Daily Polar Gridded Brightness Temperatures product created at NSIDC.
+
+Additionally, these NRTSI data may be missing swaths and contain erroneous ice over ocean that was missed by the weather filters.
+Use Constraints
+
+These data are intended to facilitate time-sensitive research dependent upon precise detection of seasonal polar sea ice formation and break up. These data are primarily meant to provide a best estimate of current ice and snow conditions based on information and algorithms available at the time the data are acquired. Near-real-time products are not intended for operational use in assessing sea ice conditions for navigation and should be used with caution in extending the sea ice time series. For historical SMMR and SSM/I sea ice concentration data, please see Sea Ice Concentrations from Nimbus-7 SMMR and DMSP SSM/I Passive Microwave Data.
+
+
+Cavalieri, D. J., P. Gloersen, and W. J. Campbell. 1984. Determination of Sea Ice Parameters with the NIMBUS-7 SMMR. Journal of Geophysical Research 89(D4):5355-5369.
+
+Cavalieri, D. J., C. I. Parkinson, P. Gloersen, and H. J. Zwally. 1997. Arctic and Antarctic Sea Ice Concentrations from Multichannel Passive-Microwave Satellite Data Sets: October 1978 to December 1996, User's Guide. NASA Technical Memorandum 104647. 17 pages.
+
+
+Maslanik, J. and J. Stroeve. 1999, updated daily. Near-Real-Time DMSP SSM/I-SSMIS Daily Polar Gridded Sea Ice Concentrations. [indicate subset used]. Boulder, Colorado USA: NASA DAAC at the National Snow and Ice Data Center. 
+
+\subsubsection{Description of data}
+
+0 - 250 	Sea ice concentration (fractional coverage scaled by 250)
+251 	Circular mask used in the Arctic to cover the irregularly-shaped data gap around the pole (caused by the orbit inclination and instrument swath)
+252 	Unused
+253 	Coastlines
+254 	Superimposed land mask
+255 	Missing data 
