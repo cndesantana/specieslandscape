@@ -15,9 +15,9 @@ for(i in 1:nfiles){
 	inputfile<-as.character(files$V1)[i];
 	date_sufix<-unlist(strsplit(unlist(strsplit(inputfile,'/'))[2],"[.]"))[1]
 	basalmat<-read.csv(inputfile,sep=" ",header=FALSE);
-	basalmat<-as.matrix(basalmat[,-length(basalmat[1,])]);#there is an extra column in each file
+	basalmat<-as.matrix(basalmat[,-305]);#there is an extra column in each file
 
-	for(threshold in 1:99){
+	for(threshold in 1:90){
 	#	threshold<-15;#Percentual of sea-ice coverage to be considered as 'ice'
 		mat<-basalmat;
 		threshold_sufix<-as.character(sprintf("%02d",threshold));
@@ -26,8 +26,9 @@ for(i in 1:nfiles){
 		if(!file.exists(outputfile_compsizes)) file.create(outputfile_compsizes,overwrite=FALSE);
 
 	#identifying the grid-points with sea-ice-concentration higher than the threshold
-		mat[which(mat>=(threshold/100.),arr.ind=TRUE)]<-1;
-		mat[which(mat<(threshold/100.),arr.ind=TRUE)]<-0;
+		mat[which(basalmat>=(threshold/100.))]<-1;
+		mat[which(basalmat<(threshold/100.))]<-0;
+		if(sum(mat==1)>0)
 	#converting the matrix to 'spatstat' format
 	#identifying the components (blocks) and their sizes
 		conn<-connected(as.im(mat),background=0,method="C");
@@ -38,7 +39,6 @@ for(i in 1:nfiles){
 		centroid<-t(matrix(unlist(lapply(W,centroid.owin)),nrow=2));
 	#Calculating the MATRIX OF DISTANCES among the components
 		matdist<-as.matrix(dist(centroid));
-	
 	#OUTPUTS
 	#Components size
 		cat(paste(date_sufix," ",sep=""),file=outputfile_compsizes,append=TRUE);
@@ -48,7 +48,6 @@ for(i in 1:nfiles){
 	#Centroids and matrix of distances
 		outputfile_centroids<-paste("distancemat/thsld_",threshold_sufix,"/output_centroids_",date_sufix,"_thsld_",threshold_sufix,".dat",sep="");
 		outputfile_matdist<-paste("distancemat/thsld_",threshold_sufix,"/output_matdist_",date_sufix,"_thsld_",threshold_sufix,".dat",sep="");
-		outputfile_icemat<-paste("distancemat/thsld_",threshold_sufix,"/output_icemat_",date_sufix,"_thsld_",threshold_sufix,".mat",sep="");
 		if(!file.exists(outputfile_centroids)) file.create(outputfile_centroids);
 		if(!file.exists(outputfile_matdist)) file.create(outputfile_matdist);
 		for(j in 1:nc){
@@ -59,10 +58,11 @@ for(i in 1:nfiles){
 			cat("\n",file=outputfile_matdist,append=TRUE);
 		}
 
-		if(!file.exists(outputfile_icemat)) file.create(outputfile_icemat);
-		for(j in 1:length(basalmat[,1])){
-			cat(mat[j,],file=outputfile_icemat,append=TRUE);
-			cat("\n",file=outputfile_icemat,append=TRUE);
-		}
+#		outputfile_icemat<-paste("distancemat/thsld_",threshold_sufix,"/output_icemat_",date_sufix,"_thsld_",threshold_sufix,".mat",sep="");
+#		if(!file.exists(outputfile_icemat)) file.create(outputfile_icemat);
+#		for(j in 1:length(basalmat[,1])){
+#			cat(mat[j,],file=outputfile_icemat,append=TRUE);
+#			cat("\n",file=outputfile_icemat,append=TRUE);
+#		}
 	}
 }
