@@ -95,3 +95,7 @@ For an introduction to spatstat, type ‘beginner’
 + #		}
 + 	}
 + }
+> 
+> proc.time()
+     user    system   elapsed 
+11551.088    44.408 11617.579 
