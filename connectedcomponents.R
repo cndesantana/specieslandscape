@@ -15,7 +15,7 @@ for(i in 1:nfiles){
 	inputfile<-as.character(files$V1)[i];
 	date_sufix<-unlist(strsplit(unlist(strsplit(inputfile,'/'))[2],"[.]"))[1]
 	basalmat<-read.csv(inputfile,sep=" ",header=FALSE);
-	basalmat<-as.matrix(basalmat[,-305]);#there is an extra column in each file
+	basalmat<-as.matrix(basalmat[,-length(basalmat[1,])]);#there is an extra column in each file
 
 	for(threshold in 1:99){
 	#	threshold<-15;#Percentual of sea-ice coverage to be considered as 'ice'
@@ -48,17 +48,19 @@ for(i in 1:nfiles){
 	#Centroids and matrix of distances
 		outputfile_centroids<-paste("distancemat/thsld_",threshold_sufix,"/output_centroids_",date_sufix,"_thsld_",threshold_sufix,".dat",sep="");
 		outputfile_matdist<-paste("distancemat/thsld_",threshold_sufix,"/output_matdist_",date_sufix,"_thsld_",threshold_sufix,".dat",sep="");
-		outputfile_icemat<-paste("distancemat/thsld_",threshold_sufix,"/output_icemat_",date_sufix,"_thsld_",threshold_sufix,".dat",sep="");
+		outputfile_icemat<-paste("distancemat/thsld_",threshold_sufix,"/output_icemat_",date_sufix,"_thsld_",threshold_sufix,".mat",sep="");
 		if(!file.exists(outputfile_centroids)) file.create(outputfile_centroids);
 		if(!file.exists(outputfile_matdist)) file.create(outputfile_matdist);
-		if(!file.exists(outputfile_icemat)) file.create(outputfile_icemat);
 		for(j in 1:nc){
 			cat(centroid[j,],file=outputfile_centroids,append=TRUE);
 			cat("\n",file=outputfile_centroids,append=TRUE);
 			
 			cat(matdist[j,],file=outputfile_matdist,append=TRUE);
 			cat("\n",file=outputfile_matdist,append=TRUE);
-			
+		}
+
+		if(!file.exists(outputfile_icemat)) file.create(outputfile_icemat);
+		for(j in 1:length(basalmat[,1])){
 			cat(mat[j,],file=outputfile_icemat,append=TRUE);
 			cat("\n",file=outputfile_icemat,append=TRUE);
 		}
