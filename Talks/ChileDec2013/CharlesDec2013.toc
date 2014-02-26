@@ -1,0 +1,7 @@
+\beamer@endinputifotherversion {3.24pt}
+\beamer@sectionintoc {1}{Motivation}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Fragmented Landscapes}{3}{0}{1}
+\beamer@sectionintoc {2}{Methodology}{5}{0}{2}
+\beamer@subsectionintoc {2}{1}{Population Dynamics in Fragmented Landscapes}{5}{0}{2}
+\beamer@sectionintoc {3}{Expected Results}{8}{0}{3}
+\beamer@sectionintoc {4}{Perspectives}{9}{0}{4}

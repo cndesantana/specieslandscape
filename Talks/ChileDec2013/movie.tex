@@ -1,0 +1,18 @@
+\documentclass{article}
+\usepackage{media9}[2013/11/04]
+
+\begin{document}
+
+\includemedia[
+  width=0.6\linewidth,height=0.6\linewidth,
+  activate=pageopen,
+  transparent,
+  addresource=movie.mp4,
+  flashvars={
+    source=movie.mp4     % same path as in addresource!
+   &loop=true           % loop video
+   &scaleMode=letterbox % preserve aspect ratio
+  }
+]{}{VPlayer9.swf}
+
+\end{document}

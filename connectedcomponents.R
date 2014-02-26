@@ -17,8 +17,8 @@ for(i in 1:nfiles){
 	basalmat<-read.csv(inputfile,sep=" ",header=FALSE);
 	basalmat<-as.matrix(basalmat[,-305]);#there is an extra column in each file
 
+#	threshold means the Percentual of sea-ice coverage to be considered as 'ice'
 	for(threshold in 1:90){
-	#	threshold<-15;#Percentual of sea-ice coverage to be considered as 'ice'
 		mat<-basalmat;
 		threshold_sufix<-as.character(sprintf("%02d",threshold));
 		dir.create(paste("distancemat/thsld_",threshold_sufix,sep=""),showWarnings = FALSE);
@@ -58,11 +58,13 @@ for(i in 1:nfiles){
 			cat("\n",file=outputfile_matdist,append=TRUE);
 		}
 
-#		outputfile_icemat<-paste("distancemat/thsld_",threshold_sufix,"/output_icemat_",date_sufix,"_thsld_",threshold_sufix,".mat",sep="");
-#		if(!file.exists(outputfile_icemat)) file.create(outputfile_icemat);
-#		for(j in 1:length(basalmat[,1])){
-#			cat(mat[j,],file=outputfile_icemat,append=TRUE);
-#			cat("\n",file=outputfile_icemat,append=TRUE);
-#		}
+	#Matrix of zeros and ones, in order to calculate fractal dimension
+
+		outputfile_icemat<-paste("distancemat/thsld_",threshold_sufix,"/output_icemat_",date_sufix,"_thsld_",threshold_sufix,".mat",sep="");
+		if(!file.exists(outputfile_icemat)) file.create(outputfile_icemat);
+		for(j in 1:length(basalmat[,1])){
+			cat(mat[j,],file=outputfile_icemat,append=TRUE);
+			cat("\n",file=outputfile_icemat,append=TRUE);
+		}
 	}
 }

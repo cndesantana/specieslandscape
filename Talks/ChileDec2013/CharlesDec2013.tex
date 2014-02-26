@@ -1,0 +1,180 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% beamer %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% To run - pdflatex filename.tex
+%	   acroread filename.pdf
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\documentclass[handout,compress,gray]{beamer}
+\RequirePackage{flashmovie}
+\documentclass[compress,red]{beamer} 
+%\mode<presentation>
+%\usetheme{Madrid}
+
+\hypersetup{pdfpagemode=FullScreen}%makes your presentation go automatically to full screen
+\usepackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+
+% define your own colors:
+\definecolor{Black}{rgb}{12,250,170}
+\xdefinecolor{olive}{cmyk}{0.64,0,0.95,0.4}
+\useoutertheme[subsection=false]{smoothbars}
+\beamertemplateshadingbackground{red!10}{pink!25}
+\setbeamertemplate{footline}[text line]{} % makes the footer EMPTY
+
+% include packages
+\usepackage{subfigure}
+%\usepackage{natbib}
+%\usepackage{biblatex}
+\usepackage{multicol}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amssymb,amsmath}
+%\usepackage[all,knot]{xy}
+%\xyoption{arc}
+\usepackage{url}
+\usepackage{multimedia}
+\usepackage{hyperref}
+\usepackage[latin1]{inputenc}
+\usefonttheme{professionalfonts}
+\usepackage{times}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{verbatim}
+\usepackage{multirow}
+%\usepackage{bibentry}
+
+\usetikzlibrary{arrows,shapes} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Title Page Info %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{-7 in}
+%\title{}\\
+%\flushleft {{\upshape \tiny \em{\LaTeX\ seminar style \& Beamer}}}\\ 
+%\vspace{0.4 in}
+%\tiny Carlos J. Meli\'an\\
+%Center for Ecology, Evolution and Biogeochemistry, EAWAG\\
+%http://www.eawag.ch/about/personen/homepages/melianca\\
+%\vspace{-0.2 in}
+%\institute{Institut f\"ur Integrative Biologie\\ ETH Z\"urich\\ June 4, 2013}
+%\vspace{0.4 in}
+\date{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Begin Your Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%\bibliographystyle{ecol_let}
+%\bibliography{FoodWebs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace{-0.25 in}
+\hspace{2 in}\frame{{\Large Metacommunity landscape dynamics}
+	\titlepage 
+%\flushleft {{\upshape \tiny \em{\LaTeX\ seminar style \& Beamer}}}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\section[Outline]{}	% this puts the outline before EACH section automatically & will highlight the section you're about to talk about
+%\frame{\tableofcontents}
+
+
+\section{Motivation}
+
+\subsection{Fragmented Landscapes}
+\frame{\frametitle{Antarctic Sea Ice Concentration}
+\setbeamercolor{uppercol}{fg=black,bg=pink}
+\setbeamercolor{lowercol}{fg=black,bg=pink}
+\begin{beamerboxesrounded}[upper=upperco,lower=lowercol,shadow=true]{}
+\begin{minipage}[t]{6.1cm}
+\hspace{4cm}\flashmovie[auto=0,loop=1,controlbar=1,engine=flv-player,width=6cm,height=6cm]{Antarctic.flv}
+\end{minipage}
+\end{beamerboxesrounded}
+}
+
+\frame{\frametitle{Arctic Sea Ice Concentration}
+\setbeamercolor{uppercol}{fg=black,bg=pink}
+\setbeamercolor{lowercol}{fg=black,bg=pink}
+\begin{beamerboxesrounded}[upper=upperco,lower=lowercol,shadow=true]{}
+\begin{minipage}[t]{6.1cm}
+\hspace{4cm}\flashmovie[auto=0,loop=1,controlbar=1,engine=flv-player,width=6cm,height=6cm]{Arctic.flv}
+\end{minipage}
+\end{beamerboxesrounded}
+}
+
+\section{Methodology}
+\subsection{Population Dynamics in Fragmented Landscapes}
+\frame{\frametitle{Landscapes as Networks}
+\setbeamercolor{uppercol}{fg=black,bg=pink}
+\setbeamercolor{lowercol}{fg=black,bg=pink}
+\begin{center}
+\includegraphics<1>[height=7cm,width=7cm]{PatchesNetwork.png}
+\end{center}
+}
+
+\frame{\frametitle{Population Dynamic within Patches}
+\setbeamercolor{uppercol}{fg=black,bg=pink}
+\setbeamercolor{lowercol}{fg=black,bg=pink}
+\begin{beamerboxesrounded}[upper=upperco,lower=lowercol,shadow=true]{}
+\begin{minipage}[t]{6.1cm}
+\hspace{4cm}\flashmovie[auto=0,loop=1,controlbar=1,engine=flv-player,width=6cm,height=6cm]{animation_MetLandsDyn_2.flv}
+\end{minipage}
+\end{beamerboxesrounded}
+}
+
+\frame{\frametitle{Migration from the Pool and among Patches}
+\setbeamercolor{uppercol}{fg=black,bg=pink}
+\setbeamercolor{lowercol}{fg=black,bg=pink}
+\begin{beamerboxesrounded}[upper=upperco,lower=lowercol,shadow=true]{}
+\begin{minipage}[t]{6.1cm}
+\hspace{4cm}\flashmovie[auto=0,loop=1,controlbar=1,engine=flv-player,width=6cm,height=6cm]{animation_MetLandsDyn.flv}
+\end{minipage}
+\end{beamerboxesrounded}
+}
+
+\section{Expected Results}
+\frame{\frametitle{Richness vs. Fragmentation vs. Area}
+\setbeamercolor{uppercol}{fg=black,bg=pink}
+\setbeamercolor{lowercol}{fg=black,bg=pink}
+\begin{center} 
+\includegraphics<1>[height=7cm,width=7cm]{RichFragArea.png}
+\end{center}
+}
+
+\section{Perspectives}
+\frame{\frametitle{Biodiversity vs. Regime Shifts:Arctic Sea Ice and Zooplankton}
+\setbeamercolor{uppercol}{fg=black,bg=pink}
+\setbeamercolor{lowercol}{fg=black,bg=pink}
+\begin{center} 
+\includegraphics<1>[height=6cm,width=12cm]{ArcticRegimeShift.png}
+\end{center} 
+}
+
+\frame{\frametitle{Atlantic Forest and Insects/Mammals/Amphibians/...}
+\setbeamercolor{uppercol}{fg=black,bg=pink}
+\setbeamercolor{lowercol}{fg=black,bg=pink}
+\begin{center} 
+\includegraphics<1>[height=7cm,width=7cm]{MataAtlantica.png}
+\end{center} 
+}
+
+\frame{\frametitle{Continental Drift and Amphibians}
+\setbeamercolor{uppercol}{fg=black,bg=pink}
+\setbeamercolor{lowercol}{fg=black,bg=pink}
+\begin{beamerboxesrounded}[upper=upperco,lower=lowercol,shadow=true]{}
+\begin{minipage}[t]{6.1cm}
+\hspace{4cm}\flashmovie[auto=0,loop=1,controlbar=1,engine=flv-player,width=6cm,height=6cm]{ContinentalDrift.flv}
+\end{minipage}
+\end{beamerboxesrounded}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% End Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
+
